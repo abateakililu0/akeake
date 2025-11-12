@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wellcome to akaa websit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body >
+  <nav class="navbar">
+      
+      <ul class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="education.html" id="active">Education</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </ul>
+    </nav>
+
+    
+       <h3 style="width: 70;text-align: center;font-weight: 1200;font-size: larger; background-color: chocolate;">Educational background</h3>
+    <br>
+
+    <section>
+        <table border="4" >
+            <thead>
+                <tr>
+                    <th>grade
+                    </th>
+                    <th>year</th>
+                    <th>learing skill</th>
+                    <th>name of the school</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>grade 1-8 </td>
+                    <td>2002-2010 </td>
+                    <td>good </td>
+                    <td>fonk prm school</td>
+                </tr>
+                <tr>
+                    <td>9-12</td>
+                    <td>2011-214</td>
+                    <td>very good</td>
+                    <td>fonk 2nd school</td>
+                </tr>
+                <tr>
+                    <td>12 exam</td>
+                    <td>2015</td>
+                    <td>very good and pass the exam</td>
+                    <td>worabe universty</td>
+                </tr>
+                <tr>
+                    <td>universty</td>
+                    <td>2016</td>
+                    <td>good</td>
+                    <td>wolayit sodo universty</td>
+                </tr>
+              
+            </tbody>
+        </table>
+    </section>
+
+    <footer><br><br><br>
+ <p style="width: 80;background-color: darkkhaki;">name Akililu Abate</p>
+        
+    </footer>
+    <script>
+        window.onload = function() {
+    alert("Welcome to Akaa’s Website!");
+  };
+        
+
+  const menuLinks = document.querySelectorAll(".nav-links a");
+  const currentPage = window.location.pathname.split("/").pop();
+
+  menuLinks.forEach(link => {
+    const linkPage = link.getAttribute("href");
+    if (linkPage === currentPage || (linkPage === "index.html" && currentPage === "")) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+
+
+
+       
+        function highlightRow() {
+            const table = document.getElementById("educationTable");
+            const rows = table.getElementsByTagName("tr");
+            const currentYear = new Date().getFullYear();
+
+            for (let i = 1; i < rows.length; i++) { 
+                const yearCell = rows[i].getElementsByTagName("td")[1];
+                if (yearCell) {
+                    const years = yearCell.innerText.split("-");
+                    const startYear = parseInt(years[0]);
+                    const endYear = parseInt(years[1] || years[0]);
+                    if (currentYear >= startYear && currentYear <= endYear) {
+                        rows[i].style.backgroundColor = "#ffb347"; 
+                        rows[i].style.color = "#000";
+                    } else {
+                        rows[i].style.backgroundColor = "";
+                        rows[i].style.color = "";
+                    }
+                }
+            }
+        }
+    </script><br><br><br><br>
+   
+</body>
+</html>

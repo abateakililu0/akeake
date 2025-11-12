@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wellcome to akaa websit</title>
+      <link rel="stylesheet" href="style.css">
+</head> 
+<body > 
+    <nav class="navbar">
+     
+      <ul class="nav-links">
+    
+            <a href="index.html" id="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+
+
+        </ul>
+    </nav>  <br> <br> <br>
+   
+  <h1 style="color: brown; font-style: italic; text-align: center; font-size: 100px;background-color: black;">MY Short introduction</h1><br><br>
+    <h2></h2> 
+    <h2 style="font-size:50px; line-height: 50px;text-align: center;" >my name is Akililu Abate <br> I come from wache and 3rd year woliyta sodo computer science student 
+    
+    </h2><br><br>
+   
+<img src="abb.jpg" alt="lion image" style="border-radius:50%; object-fit:cover; width:700px; height:1000px;">
+
+
+
+     
+    <h1 style="width: 70; color: rgb(255, 0, 30);">Contact us</h1>
+    <li><h3s style="color: burlywood;">Phone: 0973916610</h3></li>
+    <li><strong style="color: forestgreen;">💬 Telegram:</strong> <a href="https://t.me/akililu73" target="_blank">@akililu73</a></li>
+   <li><h3 style="color: darkmagenta;">Address:haadyya hossan</h3></li>
+      
+   
+    <a style="font-size: 20px;" href="https://www.akaa.com/">Read more</a><br><br>
+   
+   
+    <h3 style="width: 50;background-color: rgb(0, 139, 63);">name Akililu Abate</h3><br><br>
+   
+    
+
+
+ 
+  <script>
+  
+    window.onload = function() {
+      alert("Welcome to Akaa’s Website!");
+    };
+
+    const themeBtn = document.getElementById("themeToggle");
+    let darkMode = false;
+
+    themeBtn.addEventListener("click", function() {
+      if (!darkMode) {
+        document.body.style.backgroundColor = "#1a1a1a";
+        document.body.style.color = "white";
+        themeBtn.textContent = "Switch to Light Mode";
+        darkMode = true;
+      } else {
+        document.body.style.backgroundColor = "rgb(255, 162, 0)";
+        document.body.style.color = "black";
+        themeBtn.textContent = "Switch to Dark Mode";
+        darkMode = false;
+      }
+    });
+
+   
+    function updateClock() {
+      const clock = document.getElementById("clock");
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, "0");
+      const minutes = now.getMinutes().toString().padStart(2, "0");
+      const seconds = now.getSeconds().toString().padStart(2, "0");
+      clock.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock(); // initial run
+
+   
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Highlight active menu link
+    const menuLinks = document.querySelectorAll(".nav-links a");
+    menuLinks.forEach(link => {
+      link.addEventListener("click", function() {
+        menuLinks.forEach(l => l.classList.remove("active"));
+        this.classList.add("active");
+        localStorage.setItem("activeLink", this.href);
+      });
+    });
+
+    // Restore saved active link
+    const savedActive = localStorage.getItem("activeLink");
+    if (savedActive) {
+      menuLinks.forEach(link => {
+        if (link.href === savedActive) {
+          link.classList.add("active");
+        }
+      });
+    }
+  </script>
+
+    
+</body>
+</html>

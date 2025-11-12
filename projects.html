@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Akaa Website</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Hide all project images by default */
+  .project-images img {
+    display: none;
+    width: 300px;  /* adjust as needed */
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* Only the active image is shown */
+  .project-images img.active {
+    display: block;
+  }
+</style>
+</head>
+<body >
+
+<nav class="navbar">
+ 
+  <ul class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="education.html">Education</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html" id="active">Projects</a>
+    <a href="contact.html">Contact</a>
+  </ul>
+</nav><br><br>
+
+<header>
+  <h1 style="text-align: center; color: blue;">Projects</h1>
+</header><br><br>
+
+<section>
+  <div class="project">
+    <h2 id="a" style="color: rgb(0, 26, 255); text-align: center;">Hospital Management System</h2><br><br>
+    <img src="h1.jpg" alt="lion image" >
+    <div class="project-images" id="imageContainer">
+      <img src="hs1.JPG" alt="lion image" > <!-- Default visible -->
+      <img src="hs2.JPG" alt="lion image">
+      
+    </div>
+    <button id="toggleImagesBtn"></button><br><br>
+
+    <p style="font-size:20px; line-height: 30px;">
+      A Hospital Management System (HMS) is an integrated software solution designed to streamline the operational, administrative, and clinical functions of a hospital. It serves as a centralized platform to manage vital hospital activities such as patient records, doctor information, appointments, diagnoses, and treatments. By using SQL.
+    </p><br><br>
+  </div>
+
+  <div class="project">
+    <h2 style="color: blue; text-align: center;">Dorm Management System</h2><br><br>
+      <img src="d1.jpg" alt="lion image" >
+    <div class="project-images" id="imageContainer">
+      <img src="dm1.JPG" alt="lion image" > 
+      <img src="dm2.JPG" alt="lion image">
+      
+     
+    </div>
+    
+    <p>The Database Dorm Placement System for WOLAITA SODO UNIVERSITY is a comprehensive dormitory management system designed to streamline and enhance the process of allocating dormitories to students. By using database.</p>
+  </div>
+</section>
+
+<footer><br>
+  <p style="width: 70;background-color: rgb(0, 255, 247);">Name: Akililu Abate</p>
+</footer>
+
+<script>
+  window.onload = function() {
+    alert("Welcome to Akaa’s Website!");
+  };
+  const toggleBtn = document.getElementById("toggleImagesBtn");
+  const images = document.querySelectorAll("#imageContainer img");
+  let currentIndex = 0;
+
+  toggleBtn.addEventListener("click", () => {
+    
+    images[currentIndex].classList.remove("active");
+    
+    currentIndex = (currentIndex + 1) % images.length;
+  
+    images[currentIndex].classList.add("active");
+  });
+</script>
+
+</body>
+</html>

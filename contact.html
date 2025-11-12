@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wellcome to akaa websit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body >
+  
+
+   <nav class="navbar">
+     
+      <ul class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" id="active">Contact</a>
+        </ul>
+    </nav><br>
+
+    
+        <h3 style="width: 10;font-size: larger;background-color: crimson; text-align: center;font-weight: 100;">Contact us</h3>
+  
+
+              <form id="contactForm">
+<section class="contact">
+  
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="Enter your name" required><br><br>
+
+  <label for="pass">Password</label>
+<input type="password"id="pass"><br><br> 
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" placeholder="Enter the subject" required><br><br> 
+ 
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="10" placeholder="Type your message here..." required></textarea><br><br> 
+
+   <label for="gender">Gender</label><br>
+<input type="radio"id="Gender" value="M"name="Gender"> Male<br>
+<input type="radio"id="Gender" value="F" name="Gender">Female <br><br> 
+
+    <button type="submit">login</button><br><br>
+    <div id="responseMessage" class="success-message"></div>
+</section>
+</form>
+        </p>
+        <p>
+            Email: <a href="mailto:[Your Email Address]">[akililuabate1@gmail.com]</a>
+        </p>
+
+    </section>
+
+    <footer>
+        <p style="width: 60;background-color: darksalmon;"> name Akililu Abate</p>
+    </footer>
+    <script>
+   
+    window.onload = function() {
+      alert("Welcome to Akaa’s Website!");
+    };
+
+  
+    const menuLinks = document.querySelectorAll(".nav-links a");
+    const currentPage = window.location.pathname.split("/").pop();
+    menuLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+
+  
+    const form = document.getElementById("contactForm");
+    const responseMessage = document.getElementById("responseMessage");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); 
+
+      const inputs = form.querySelectorAll("input, textarea");
+      inputs.forEach(input => input.classList.remove("error"));
+
+      
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("pass").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const genderInput = form.querySelector("input[name='gender']:checked");
+      const gender = genderInput ? genderInput.value : "";
+
+      let isValid = true;
+
+    
+      if (!username) { markError("username"); isValid = false; }
+      if (!password) { markError("pass"); isValid = false; }
+      if (!email || !validateEmail(email)) { markError("email"); isValid = false; }
+      if (!subject) { markError("subject"); isValid = false; }
+      if (!message) { markError("message"); isValid = false; }
+      if (!gender) {
+        alert("Please select your gender.");
+        isValid = false;
+      }
+
+      if (isValid) {
+        responseMessage.textContent = "✅ Message sent successfully! Thank you, " + username + ".";
+        alert("Message sent successfully!\n\nName: " + username + "\nGender: " + gender + "\nSubject: " + subject);
+        form.reset();
+      } else {
+        responseMessage.textContent = "";
+      }
+    });
+
+  
+    function markError(id) {
+      document.getElementById(id).classList.add("error");
+    }
+
+   
+    function validateEmail(email) {
+      const re = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
+  </script>
+  
+</body>
+</html>

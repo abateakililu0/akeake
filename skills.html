@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!DOCTYPE html>
+ <title>wellcome to akaa websit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body >
+    <nav class="navbar">
+    
+      <ul class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html" id="active">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </ul>
+    </nav>
+
+    <header>
+    
+  </header>
+
+  <section>
+    <h2 style="width: fit-content;text-align: center;">Technical Skills(Programming Skills)</h2>
+    <button id="toggleTechnical">Show/Hide</button>
+    <ul id="technicalList"><br>
+      <li>HTML   66% </li>           
+      <li>CSS        70%</li>
+      <li>JavaScript50%</li>
+      <li>SQL 69%</li>
+      <li>Python  20%</li>
+    </ul><br><br>
+
+    <h2 style="width: max-content;text-align: center;">Soft Skills</h2>
+    <button id="toggleSoft">Show/Hide</button>
+    <ul id="softList"><br>
+      <li>Teamwork 50%</li>
+      <li>Communication 80%</li>
+      <li>Problem-solving 54%</li>
+      
+      <li>Time Management 70%</li>
+    </ul>
+  </section>
+
+
+    <footer><br><br>
+        <p style=" background-color: blue;"> name Akililu Abate</p>
+    </footer>
+    <script>
+      window.onload = function() {
+    alert("Welcome to Akaa’s Website!");
+  };
+    
+    const menuLinks = document.querySelectorAll(".nav-links a");
+    const currentPage = window.location.pathname.split("/").pop();
+
+    menuLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPage || (link.getAttribute("href") === "index.html" && currentPage === "")) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+
+   
+    function setupToggle(buttonId, listId) {
+      const button = document.getElementById(buttonId);
+      const list = document.getElementById(listId);
+      const items = list.querySelectorAll("li");
+
+      button.addEventListener("click", () => {
+        const isVisible = list.style.display !== "none";
+        if (isVisible) {
+       
+          list.style.display = "none";
+        } else {
+          // Show with animation
+          list.style.display = "block";
+          items.forEach((item, i) => {
+            setTimeout(() => item.classList.add("show"), i * 150);
+          });
+        }
+      });
+
+   
+      list.style.display = "none";
+    }
+
+    setupToggle("toggleTechnical", "technicalList");
+    setupToggle("toggleSoft", "softList");
+  </script>
+</body>
+</html>
